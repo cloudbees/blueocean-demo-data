@@ -1,0 +1,4 @@
+[workspace] Running shell script
++ ls -l
+total 8
+-rw-r--r--  1 ivan  wheel  668 30 Jun 15:56 Jenkinsfile

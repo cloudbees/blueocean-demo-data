@@ -1,0 +1,52 @@
+Branch indexing
+Connecting to https://api.github.com using anonymous access
+Cloning the remote Git repository
+Cloning repository https://github.com/cloudbeers/PR-demo.git
+ > git init /Users/ivan/pr-builder-home/jobs/multibranch/branches/master/workspace@script # timeout=10
+Fetching upstream changes from https://github.com/cloudbeers/PR-demo.git
+ > git --version # timeout=10
+ > git -c core.askpass=true fetch --tags --progress https://github.com/cloudbeers/PR-demo.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/cloudbeers/PR-demo.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/cloudbeers/PR-demo.git # timeout=10
+Fetching upstream changes from https://github.com/cloudbeers/PR-demo.git
+ > git -c core.askpass=true fetch --tags --progress https://github.com/cloudbeers/PR-demo.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin1.url https://github.com/cloudbeers/PR-demo.git # timeout=10
+Fetching upstream changes from https://github.com/cloudbeers/PR-demo.git
+ > git -c core.askpass=true fetch --tags --progress https://github.com/cloudbeers/PR-demo.git +refs/pull/*/merge:refs/remotes/origin/pr/*
+Checking out Revision 99608938c2e9f12e73c4aba94b81a4dbdaffb937 (master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 99608938c2e9f12e73c4aba94b81a4dbdaffb937
+First time build. Skipping changelog.
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] sleep
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] node
+Running on master in /Users/ivan/pr-builder-home/jobs/multibranch/branches/master/workspace
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] {
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] checkout
+Cloning the remote Git repository
+Cloning repository https://github.com/cloudbeers/PR-demo.git
+ > git init /Users/ivan/pr-builder-home/jobs/multibranch/branches/master/workspace # timeout=10
+Fetching upstream changes from https://github.com/cloudbeers/PR-demo.git
+ > git --version # timeout=10
+ > git -c core.askpass=true fetch --tags --progress https://github.com/cloudbeers/PR-demo.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/cloudbeers/PR-demo.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/cloudbeers/PR-demo.git # timeout=10
+Fetching upstream changes from https://github.com/cloudbeers/PR-demo.git
+ > git -c core.askpass=true fetch --tags --progress https://github.com/cloudbeers/PR-demo.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin1.url https://github.com/cloudbeers/PR-demo.git # timeout=10
+Fetching upstream changes from https://github.com/cloudbeers/PR-demo.git
+ > git -c core.askpass=true fetch --tags --progress https://github.com/cloudbeers/PR-demo.git +refs/pull/*/merge:refs/remotes/origin/pr/*
+Checking out Revision 99608938c2e9f12e73c4aba94b81a4dbdaffb937 (master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 99608938c2e9f12e73c4aba94b81a4dbdaffb937
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] sh
+[workspace] Running shell script
++ ls -l
+total 8
+-rw-r--r--  1 ivan  wheel  64 30 Jun 15:56 Jenkinsfile
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] }
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] // node
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] sleep
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] End of Pipeline
+Finished: SUCCESS

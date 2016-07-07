@@ -1,0 +1,17 @@
+Cloning the remote Git repository
+Cloning repository https://github.com/cloudbeers/PR-demo.git
+ > git init /Users/ivan/pr-builder-home/jobs/multibranch/branches/stephenc-patch-1/workspace # timeout=10
+Fetching upstream changes from https://github.com/cloudbeers/PR-demo.git
+ > git --version # timeout=10
+ > git -c core.askpass=true fetch --tags --progress https://github.com/cloudbeers/PR-demo.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/cloudbeers/PR-demo.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/cloudbeers/PR-demo.git # timeout=10
+Fetching upstream changes from https://github.com/cloudbeers/PR-demo.git
+ > git -c core.askpass=true fetch --tags --progress https://github.com/cloudbeers/PR-demo.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin1.url https://github.com/cloudbeers/PR-demo.git # timeout=10
+Fetching upstream changes from https://github.com/cloudbeers/PR-demo.git
+ > git -c core.askpass=true fetch --tags --progress https://github.com/cloudbeers/PR-demo.git +refs/pull/*/merge:refs/remotes/origin/pr/*
+Checking out Revision ce87d64714004f46ea29d9aa198a4af730679a44 (stephenc-patch-1)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f ce87d64714004f46ea29d9aa198a4af730679a44

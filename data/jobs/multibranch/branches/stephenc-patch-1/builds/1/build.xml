@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<flow-build plugin="workflow-job@2.3">
+  <actions>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <jenkins.branch.BranchIndexingCause plugin="branch-api@1.10"/>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+    <jenkins.scm.api.SCMRevisionAction plugin="scm-api@1.2">
+      <revision class="jenkins.plugins.git.AbstractGitSCMSource$SCMRevisionImpl" plugin="git@2.5.0">
+        <head plugin="scm-api@1.2">
+          <name>stephenc-patch-1</name>
+        </head>
+        <hash>ce87d64714004f46ea29d9aa198a4af730679a44</hash>
+      </revision>
+    </jenkins.scm.api.SCMRevisionAction>
+    <hudson.plugins.git.util.BuildData plugin="git@2.5.0">
+      <buildsByBranchName>
+        <entry>
+          <string>stephenc-patch-1</string>
+          <hudson.plugins.git.util.Build>
+            <marked plugin="git-client@1.19.6">
+              <sha1>ce87d64714004f46ea29d9aa198a4af730679a44</sha1>
+              <branches class="singleton-set">
+                <hudson.plugins.git.Branch>
+                  <sha1 reference="../../../sha1"/>
+                  <name>stephenc-patch-1</name>
+                </hudson.plugins.git.Branch>
+              </branches>
+            </marked>
+            <revision reference="../marked"/>
+            <hudsonBuildNumber>1</hudsonBuildNumber>
+          </hudson.plugins.git.util.Build>
+        </entry>
+      </buildsByBranchName>
+      <lastBuild reference="../buildsByBranchName/entry/hudson.plugins.git.util.Build"/>
+      <remoteUrls>
+        <string>https://github.com/cloudbeers/PR-demo.git</string>
+      </remoteUrls>
+    </hudson.plugins.git.util.BuildData>
+    <hudson.plugins.git.GitTagAction plugin="git@2.5.0">
+      <tags class="hudson.util.CopyOnWriteMap$Tree">
+        <entry>
+          <string>stephenc-patch-1</string>
+          <list/>
+        </entry>
+      </tags>
+      <ws>/Users/ivan/pr-builder-home/jobs/multibranch/branches/stephenc-patch-1/workspace@script</ws>
+    </hudson.plugins.git.GitTagAction>
+    <org.jenkinsci.plugins.workflow.steps.scm.MultiSCMRevisionState plugin="workflow-scm-step@2.1">
+      <revisionStates>
+        <entry>
+          <string>git https://github.com/cloudbeers/PR-demo.git https://github.com/cloudbeers/PR-demo.git</string>
+          <hudson.scm.SCMRevisionState_-None/>
+        </entry>
+      </revisionStates>
+    </org.jenkinsci.plugins.workflow.steps.scm.MultiSCMRevisionState>
+  </actions>
+  <queueId>8</queueId>
+  <timestamp>1467258970412</timestamp>
+  <startTime>1467258970413</startTime>
+  <result>SUCCESS</result>
+  <duration>44214</duration>
+  <keepLog>false</keepLog>
+  <execution class="org.jenkinsci.plugins.workflow.cps.CpsFlowExecution">
+    <result>SUCCESS</result>
+    <script>#!groovy
+stage &apos;Set-up&apos;
+sleep 15
+node {
+  checkout scm
+  sh &apos;ls -l&apos;
+}
+sleep 15
+echo &apos;Have some fixes!&apos;
+stage &apos;Kick-off&apos;
+try {
+triggerRemoteJob mode: [$class: &apos;TrackProgressAwaitResult&apos;, scheduledTimeout: [timeoutStr: &apos;&apos;], startedTimeout: [timeoutStr: &apos;&apos;], timeout: [timeoutStr: &apos;1d&apos;], whenFailure: [$class: &apos;StopAsFailure&apos;], whenScheduledTimeout: [$class: &apos;ContinueAsIs&apos;], whenStartedTimeout: [$class: &apos;ContinueAsIs&apos;], whenTimeout: [$class: &apos;ContinueAsFailure&apos;], whenUnstable: [$class: &apos;ContinueAsUnstable&apos;]], remotePathMissing: [$class: &apos;StopAsFailure&apos;], remotePathUrl: &apos;cjp:///cje/org/PR-demo/master&apos;
+} catch (NoSuchMethodError _) {
+    echo &apos;Not running on CJOC&apos;
+}
+</script>
+    <loadedScripts class="map"/>
+    <sandbox>true</sandbox>
+    <iota>15</iota>
+    <head>1:15</head>
+  </execution>
+  <checkouts class="hudson.util.PersistedList">
+    <org.jenkinsci.plugins.workflow.job.WorkflowRun_-SCMCheckout>
+      <scm class="hudson.plugins.git.GitSCM" plugin="git@2.5.0">
+        <configVersion>2</configVersion>
+        <userRemoteConfigs>
+          <hudson.plugins.git.UserRemoteConfig>
+            <name>origin</name>
+            <refspec>+refs/heads/*:refs/remotes/origin/*</refspec>
+            <url>https://github.com/cloudbeers/PR-demo.git</url>
+          </hudson.plugins.git.UserRemoteConfig>
+          <hudson.plugins.git.UserRemoteConfig>
+            <name>origin</name>
+            <refspec>+refs/pull/*/merge:refs/remotes/origin/pr/*</refspec>
+            <url>https://github.com/cloudbeers/PR-demo.git</url>
+          </hudson.plugins.git.UserRemoteConfig>
+        </userRemoteConfigs>
+        <branches class="singleton-list">
+          <hudson.plugins.git.BranchSpec>
+            <name>stephenc-patch-1</name>
+          </hudson.plugins.git.BranchSpec>
+        </branches>
+        <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+        <submoduleCfg class="empty-list"/>
+        <extensions>
+          <hudson.plugins.git.extensions.impl.BuildChooserSetting>
+            <buildChooser class="jenkins.plugins.git.AbstractGitSCMSource$SpecificRevisionBuildChooser">
+              <revision reference="../../../../../../../actions/hudson.plugins.git.util.BuildData/buildsByBranchName/entry/hudson.plugins.git.util.Build/marked"/>
+            </buildChooser>
+          </hudson.plugins.git.extensions.impl.BuildChooserSetting>
+        </extensions>
+      </scm>
+      <node></node>
+      <workspace>/Users/ivan/pr-builder-home/jobs/multibranch/branches/stephenc-patch-1/workspace@script</workspace>
+      <changelogFile>/Users/ivan/pr-builder-home/jobs/multibranch/branches/stephenc-patch-1/builds/1/changelog0.xml</changelogFile>
+      <pollingBaseline class="hudson.scm.SCMRevisionState$None" reference="../../../actions/org.jenkinsci.plugins.workflow.steps.scm.MultiSCMRevisionState/revisionStates/entry/hudson.scm.SCMRevisionState_-None"/>
+    </org.jenkinsci.plugins.workflow.job.WorkflowRun_-SCMCheckout>
+    <org.jenkinsci.plugins.workflow.job.WorkflowRun_-SCMCheckout>
+      <scm class="hudson.plugins.git.GitSCM" plugin="git@2.5.0">
+        <configVersion>2</configVersion>
+        <userRemoteConfigs>
+          <hudson.plugins.git.UserRemoteConfig>
+            <name>origin</name>
+            <refspec>+refs/heads/*:refs/remotes/origin/*</refspec>
+            <url>https://github.com/cloudbeers/PR-demo.git</url>
+          </hudson.plugins.git.UserRemoteConfig>
+          <hudson.plugins.git.UserRemoteConfig>
+            <name>origin</name>
+            <refspec>+refs/pull/*/merge:refs/remotes/origin/pr/*</refspec>
+            <url>https://github.com/cloudbeers/PR-demo.git</url>
+          </hudson.plugins.git.UserRemoteConfig>
+        </userRemoteConfigs>
+        <branches class="singleton-list">
+          <hudson.plugins.git.BranchSpec>
+            <name>stephenc-patch-1</name>
+          </hudson.plugins.git.BranchSpec>
+        </branches>
+        <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+        <submoduleCfg class="empty-list"/>
+        <extensions>
+          <hudson.plugins.git.extensions.impl.BuildChooserSetting>
+            <buildChooser class="jenkins.plugins.git.AbstractGitSCMSource$SpecificRevisionBuildChooser">
+              <revision plugin="git-client@1.19.6">
+                <sha1>ce87d64714004f46ea29d9aa198a4af730679a44</sha1>
+                <branches class="singleton-set">
+                  <hudson.plugins.git.Branch>
+                    <sha1 reference="../../../sha1"/>
+                    <name>stephenc-patch-1</name>
+                  </hudson.plugins.git.Branch>
+                </branches>
+              </revision>
+            </buildChooser>
+          </hudson.plugins.git.extensions.impl.BuildChooserSetting>
+        </extensions>
+      </scm>
+      <node></node>
+      <workspace>/Users/ivan/pr-builder-home/jobs/multibranch/branches/stephenc-patch-1/workspace</workspace>
+      <changelogFile>/Users/ivan/pr-builder-home/jobs/multibranch/branches/stephenc-patch-1/builds/1/changelog1.xml</changelogFile>
+      <pollingBaseline class="hudson.scm.SCMRevisionState$None" reference="../../../actions/org.jenkinsci.plugins.workflow.steps.scm.MultiSCMRevisionState/revisionStates/entry/hudson.scm.SCMRevisionState_-None"/>
+    </org.jenkinsci.plugins.workflow.job.WorkflowRun_-SCMCheckout>
+  </checkouts>
+</flow-build>

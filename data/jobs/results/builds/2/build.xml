@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<flow-build plugin="workflow-job@2.3">
+  <actions>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <hudson.model.Cause_-UserIdCause>
+            <userId>admin</userId>
+          </hudson.model.Cause_-UserIdCause>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+  </actions>
+  <queueId>2</queueId>
+  <timestamp>1467258504878</timestamp>
+  <startTime>1467258504879</startTime>
+  <result>UNSTABLE</result>
+  <duration>34</duration>
+  <keepLog>false</keepLog>
+  <execution class="org.jenkinsci.plugins.workflow.cps.CpsFlowExecution">
+    <result>SUCCESS</result>
+    <script>currentBuild.result = &apos;UNSTABLE&apos;</script>
+    <loadedScripts class="map"/>
+    <sandbox>true</sandbox>
+    <iota>3</iota>
+    <head>1:3</head>
+  </execution>
+  <checkouts class="hudson.util.PersistedList"/>
+</flow-build>
