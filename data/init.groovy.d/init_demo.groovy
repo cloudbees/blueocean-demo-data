@@ -8,15 +8,21 @@ def adminUserName = System.getenv("ADMIN_USERNAME")
 if (adminUserName == null) { adminUserName = "admin" }
 
 def adminPassword = System.getenv("ADMIN_PASSWORD")
-if (adminPassword == null) { adminPassword = "demo123" }
+if (adminPassword == null) {
+  adminPassword = "demo123"
+  println("""***************************************************************************************
+*
+* WARNING: You didn't change the default image password, there may be a security risk
+* WARNING: Pass the value using 'docker run -e ADMIN_PASSWORD=theOneYouWant ...
+*
+* Admin login is ${adminUserName} / demo123
+*
+***************************************************************************************""")
+}
 
 def hudsonRealm = new HudsonPrivateSecurityRealm(false)
 println "Creating the '$adminUserName' admin user with provided password (using env var 'ADMIN_PASSWORD')"
 
-if(adminPassword.equals("demo123")) {
-  println("WARNING: You didn't change the default image password, there may be a security risk")
-  println("WARNING: Pass the value using 'docker run -e ADMIN_PASSWORD=theOneYouWant ...'")
-}
 hudsonRealm.createAccount(adminUserName, adminPassword)
 instance.setSecurityRealm(hudsonRealm)
 
