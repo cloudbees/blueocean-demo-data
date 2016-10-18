@@ -36,6 +36,6 @@ strategy.add(Jenkins.READ, "anonymous")
 strategy.add(hudson.model.Item.READ, "anonymous")
 instance.setAuthorizationStrategy(strategy)
 
-Jenkins.instance.setNumExecutors(0)
+Jenkins.instance.setNumExecutors(2)
 
 Jenkins.getInstance().save()
